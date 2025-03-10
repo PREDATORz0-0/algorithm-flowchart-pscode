@@ -1,0 +1,112 @@
+1. Student Grade Calculator
+
+Prompt the user to enter the score for assignments, midterm exam, and final exam.
+Ensure that the input is a valid numerical value between 0 and 100.
+Assign weights to each component:
+Assignments: 30% of the final grade.
+Midterm Exam: 30% of the final grade.
+Final Exam: 40% of the final grade.
+Calculate the weighted average using the formula:
+Final Grade =( Assignments×0.30)+(Midterm×0.30)+(Final Exam×0.40)
+Final Grade=(Assignments×0.30)+(Midterm×0.30)+(Final Exam×0.40)
+If the final grade is greater than or equal to 60, the student passes.
+If the final grade is less than 60, the student fails.
+Print the final grade.
+Display whether the student passed or failed.
+
+2. ATM Banking System
+
+Prompt the user to enter a PIN.
+Validate the entered PIN against the correct PIN stored in the system.
+Show the user a menu with the following options:
+Check Balance
+Deposit Money
+Withdraw Money
+Exit
+Based on the user's choice, perform the corresponding operation:
+Check Balance: Display the current balance.
+Deposit Money: Prompt the user to enter an amount to deposit, update the balance, and display a confirmation message.
+Withdraw Money: Prompt the user to enter an amount to withdraw. Check if the withdrawal amount is less than or equal to the current balance. If valid, update the balance and display a confirmation message. If not, display an error message.
+Exit: Exit the program.
+Prevent withdrawals that result in a negative balance.
+Provide transaction receipts for deposits and withdrawals showing the updated balance.
+Keep showing the menu after each operation until the user chooses to exit.
+
+3. Inventory Management System
+
+Allow the user to input the unique product ID, name, price, and quantity of a new product.
+Add the new product to the inventory, ensuring no duplicate product IDs.
+Allow the user to input the product ID and update details such as name, price, and quantity of the product.
+Ensure that the product ID exists in the inventory before updating.
+Allow the user to input a product ID to remove a product from the inventory.
+Ensure the product exists in the inventory before attempting to remove it.
+Allow the user to search for a product by ID or name. Display product details if found.
+Show all products in the inventory with their details: ID, name, price, and quantity.
+Monitor products with quantities below a certain threshold (e.g., < 10) and flag them as low stock.
+Generate a report of all products in the inventory, including their details and stock levels.
+Allow the user to exit the program.
+
+4. Prime Number Checker
+
+Prime Number Checker Algorithm
+Prompt the user to input a number.
+Verify if the input is a valid positive integer.
+If the input is less than 2, immediately return that the number is not prime (since prime numbers are greater than 1).
+Only check divisibility up to the square root of the number (sqrt(n)), as any factor larger than this would already have a corresponding smaller factor that would have been checked.
+If the number is divisible by any integer between 2 and sqrt(n), then it's not prime.
+If no factors are found, the number is prime.
+After checking for primality, display whether the number is prime or not prime.
+Provide an explanation as to why the number is prime or not.
+Allow the user to check additional numbers by asking if they want to continue and entering a new number
+
+5)Temperature Conversion Tool
+
+Start 
+Accept temperature value input from the user  
+Allow the user to select the source unit from Celsius Fahrenheit or Kelvin  
+Allow the user to select the target unit from Celsius Fahrenheit or Kelvin  
+Use the correct formula to convert the temperature from the source unit to the target unit  
+Display the converted temperature with the appropriate unit  
+Ask the user if they want to perform another conversion  
+Repeat the process until the user chooses to exit  
+End 
+
+6)Library Book Management System
+
+Start 
+Maintain a database of books with title author ISBN and status  
+Maintain a database of library members  
+Allow librarians to add new books to the collection  
+Provide an option to remove obsolete books from the database  
+Enable book checkout for members with due date tracking  
+Implement a book return process and calculate potential late fees  
+Allow searching for books by title author or ISBN  
+Generate reports for overdue books  
+Repeat the process as needed  
+End 
+
+7)Fibonacci Sequence Generator
+
+Start 
+Accept the number of terms to generate  
+Validate that the input is a positive integer within limits  
+Initialize the first two numbers of the Fibonacci sequence as 0 and 1  
+Use an efficient algorithm to generate the sequence up to the given number of terms  
+Display the generated sequence with appropriate formatting  
+Provide an option to save the sequence to a file  
+Repeat the process as needed  
+End 
+
+8)Calendar Event Scheduler
+
+Start 
+Allow the user to add events with a title, date, time, and description  
+Validate the date and time inputs  
+Store events in an organized data structure  
+Provide an option to display events for a specific day, week, or month  
+Enable searching for events by title or description  
+Allow users to delete or modify existing events  
+Set reminders for upcoming events  
+Check for schedule conflicts when adding new events  
+Repeat the process as needed  
+End
