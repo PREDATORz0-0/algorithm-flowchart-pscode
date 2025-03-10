@@ -1,0 +1,459 @@
+1. Student Grade Calculator
+
+BEGIN
+    INPUT assignments_score
+    INPUT midterm_score
+    INPUT final_exam_score
+    IF assignments_score is NOT between 0 and 100 OR midterm_score is NOT between 0 and 100 OR final_exam_score is NOT between 0 and 100 THEN
+        PRINT "Error: Scores must be between 0 and 100."
+        STOP
+    weighted_average = (assignments_score * 0.30) + (midterm_score * 0.30) + (final_exam_score * 0.40)
+    IF weighted_average >= 60 THEN
+        status = "Pass"
+    ELSE
+        status = "Fail"
+    PRINT "Final Grade: ", weighted_average
+    PRINT "Status: ", status
+END
+
+
+2. ATM Banking System
+
+BEGIN
+    SET correct_PIN = "1234"
+    SET current_balance = 1000.0 
+    PRINT "Welcome to ATM"
+    PRINT "Please enter your PIN:"
+    INPUT entered_PIN
+    IF entered_PIN != correct_PIN THEN
+        PRINT "Incorrect PIN. Access Denied."
+        STOP
+    WHILE TRUE
+        PRINT "ATM Menu:"
+        PRINT "1. Check Balance"
+        PRINT "2. Deposit Money"
+        PRINT "3. Withdraw Money"
+        PRINT "4. Exit"
+        PRINT "Please select an option:"
+        INPUT user_choice
+        IF user_choice == 1 THEN
+            PRINT "Your current balance is: ", current_balance
+        ELSE IF user_choice == 2 THEN
+            PRINT "Enter the amount to deposit:"
+            INPUT deposit_amount
+            IF deposit_amount > 0 THEN
+                current_balance = current_balance + deposit_amount
+                PRINT "Deposit successful. Your new balance is: ", current_balance
+            ELSE
+                PRINT "Invalid deposit amount."
+        ELSE IF user_choice == 3 THEN
+            PRINT "Enter the amount to withdraw:"
+            INPUT withdrawal_amount
+            IF withdrawal_amount <= current_balance THEN
+                current_balance = current_balance - withdrawal_amount
+                PRINT "Withdrawal successful. Your new balance is: ", current_balance
+            ELSE
+                PRINT "Insufficient funds. Withdrawal denied."
+        ELSE IF user_choice == 4 THEN
+            PRINT "Thank you for using the ATM. Goodbye!"
+            BREAK
+        ELSE
+            PRINT "Invalid choice. Please try again."
+    END WHILE
+END
+
+
+3. Inventory Management System
+
+BEGIN
+    SET inventory = []
+    PRINT "Welcome to Inventory Management System"
+    WHILE TRUE
+        PRINT "Select an option:"
+        PRINT "1. Add New Product"
+        PRINT "2. Update Product Information"
+        PRINT "3. Remove Product"
+        PRINT "4. Search Product"
+        PRINT "5. Display Current Inventory"
+        PRINT "6. Track Low Stock Items"
+        PRINT "7. Generate Inventory Report"
+        PRINT "8. Exit"
+        INPUT user_choice
+        IF user_choice == 1 THEN
+            PRINT "Enter Product ID (Unique):"
+            INPUT product_id
+            IF product_id already exists in inventory THEN
+                PRINT "Product ID already exists."
+            ELSE
+                PRINT "Enter Product Name:"
+                INPUT product_name
+                PRINT "Enter Product Price:"
+                INPUT product_price
+                PRINT "Enter Product Quantity:"
+                INPUT product_quantity
+                product = {ID: product_id, Name: product_name, Price: product_price, Quantity: product_quantity}
+                inventory.append(product)
+                PRINT "Product added successfully."
+        ELSE IF user_choice == 2 THEN
+            PRINT "Enter Product ID to Update:"
+            INPUT product_id        
+            product = find product by ID in inventory
+            IF product is found THEN
+                PRINT "Enter new Name (leave empty to keep current):"
+                INPUT new_name
+                IF new_name is not empty THEN
+                    product.Name = new_name               
+                PRINT "Enter new Price (leave empty to keep current):"
+                INPUT new_price
+                IF new_price is not empty THEN
+                    product.Price = new_price                
+                PRINT "Enter new Quantity (leave empty to keep current):"
+                INPUT new_quantity
+                IF new_quantity is not empty THEN
+                    product.Quantity = new_quantity           
+                PRINT "Product updated successfully."
+            ELSE
+                PRINT "Product not found."        
+        ELSE IF user_choice == 3 THEN
+            PRINT "Enter Product ID to Remove:"
+            INPUT product_id          
+            product = find product by ID in inventory           
+            IF product is found THEN
+                REMOVE product from inventory
+                PRINT "Product removed successfully."
+            ELSE
+                PRINT "Product not found."
+        ELSE IF user_choice == 4 THEN
+            PRINT "Enter Product ID or Name to Search:"
+            INPUT search_term
+            product = find product by ID or Name in inventory          
+            IF product is found THEN
+                PRINT "Product ID: ", product.ID
+                PRINT "Product Name: ", product.Name
+                PRINT "Product Price: ", product.Price
+                PRINT "Product Quantity: ", product.Quantity
+            ELSE
+                PRINT "Product not found."
+        ELSE IF user_choice == 5 THEN
+            PRINT "Current Inventory:"
+            FOR each product in inventory
+                PRINT "ID: ", product.ID, "Name: ", product.Name, "Price: ", product.Price, "Quantity: ", product.Quantity
+        ELSE IF user_choice == 6 THEN
+            PRINT "Low Stock Items (Threshold: 10):"
+            FOR each product in inventory
+                IF product.Quantity < 10 THEN
+                    PRINT "ID: ", product.ID, "Name: ", product.Name, "Quantity: ", product.Quantity
+        ELSE IF user_choice == 7 THEN
+            PRINT "Inventory Report:"
+            FOR each product in inventory
+                PRINT "ID: ", product.ID, "Name: ", product.Name, "Price: ", product.Price, "Quantity: ", product.Quantity
+        ELSE IF user_choice == 8 THEN
+            PRINT "Thank you for using the Inventory Management System. Goodbye!"
+            BREAK
+        ELSE
+            PRINT "Invalid option. Please try again."
+    END WHILE
+END
+
+
+4. Prime Number Checker
+
+BEGIN
+    WHILE TRUE DO  
+        PRINT "Enter a positive integer to check for primality (or 0 to exit):"  
+        INPUT n  
+
+        IF n == 0 THEN  
+            PRINT "Exiting program. Goodbye!"  
+            EXIT  
+        ENDIF  
+
+        IF n < 2 THEN  
+            PRINT "Number is not prime (Prime numbers start from 2)."  
+        ELSE  
+            SET is_prime TO TRUE  
+            FOR i FROM 2 TO SQRT(n) DO  
+                IF n MOD i == 0 THEN  
+                    SET is_prime TO FALSE  
+                    BREAK  
+                ENDIF  
+            ENDFOR  
+
+            IF is_prime == TRUE THEN  
+                PRINT n, "is a Prime Number (Only divisible by 1 and itself)."  
+            ELSE  
+                PRINT n, "is NOT a Prime Number (Has other factors)."  
+            ENDIF  
+        ENDIF  
+
+        PRINT "Do you want to check another number? (yes/no):"  
+        INPUT choice  
+        IF choice == "no" THEN  
+            PRINT "Exiting program. Have a great day!"  
+            EXIT  
+        ENDIF  
+    ENDWHILE  
+END
+
+
+5. Temperature Conversion Tool
+
+BEGIN  
+    WHILE TRUE DO  
+        PRINT "Enter the temperature value:"  
+        INPUT temp  
+
+        PRINT "Select the source unit (C for Celsius, F for Fahrenheit, K for Kelvin):"  
+        INPUT source_unit  
+
+        PRINT "Select the target unit (C for Celsius, F for Fahrenheit, K for Kelvin):"  
+        INPUT target_unit  
+
+        IF source_unit == target_unit THEN  
+            PRINT "No conversion needed. The temperature remains:", temp, target_unit  
+        ELSE  
+            IF source_unit == "C" THEN  
+                IF target_unit == "F" THEN  
+                    SET converted_temp TO (temp * 9/5) + 32  
+                ELSE IF target_unit == "K" THEN  
+                    SET converted_temp TO temp + 273.15  
+                ENDIF  
+            ELSE IF source_unit == "F" THEN  
+                IF target_unit == "C" THEN  
+                    SET converted_temp TO (temp - 32) * 5/9  
+                ELSE IF target_unit == "K" THEN  
+                    SET converted_temp TO (temp - 32) * 5/9 + 273.15  
+                ENDIF  
+            ELSE IF source_unit == "K" THEN  
+                IF target_unit == "C" THEN  
+                    SET converted_temp TO temp - 273.15  
+                ELSE IF target_unit == "F" THEN  
+                    SET converted_temp TO (temp - 273.15) * 9/5 + 32  
+                ENDIF  
+            ENDIF  
+
+            PRINT "Converted Temperature:", converted_temp, target_unit  
+        ENDIF  
+
+        PRINT "Do you want to convert another temperature? (yes/no):"  
+        INPUT choice  
+        IF choice == "no" THEN  
+            PRINT "Exiting the program. Stay cool! ❄️"  
+            EXIT  
+        ENDIF  
+    ENDWHILE  
+END
+
+6. Library Book Management System
+
+BEGIN  INITIALIZE book_database  
+    INITIALIZE member_database  
+
+    WHILE TRUE DO  
+        PRINT "Library Management System Menu:"  
+        PRINT "1. Add Book"  
+        PRINT "2. Remove Book"  
+        PRINT "3. Check Out Book"  
+        PRINT "4. Return Book"  
+        PRINT "5. Search Book"  
+        PRINT "6. Generate Report"  
+        PRINT "7. Exit"  
+        PRINT "Enter your choice:"  
+        INPUT choice  
+
+        IF choice == 1 THEN  
+            CALL AddBook()  
+        ELSE IF choice == 2 THEN  
+            CALL RemoveBook()  
+        ELSE IF choice == 3 THEN  
+            CALL CheckOutBook()  
+        ELSE IF choice == 4 THEN  
+            CALL ReturnBook()  
+        ELSE IF choice == 5 THEN  
+            CALL SearchBook()  
+        ELSE IF choice == 6 THEN  
+            CALL GenerateReport()  
+        ELSE IF choice == 7 THEN  
+            PRINT "Exiting system..."  
+            BREAK  
+        ELSE  
+            PRINT "Invalid choice, try again."  
+        ENDIF  
+    ENDWHILE  
+END  
+
+PROCEDURE AddBook()  
+    PRINT "Enter book details (Title, Author, ISBN):"  
+    INPUT title, author, ISBN  
+    SET status = "Available"  
+    ADD book to book_database  
+    PRINT "Book added successfully."  
+END  
+
+PROCEDURE RemoveBook()  
+    PRINT "Enter ISBN of book to remove:"  
+    INPUT ISBN  
+    REMOVE book from book_database  
+    PRINT "Book removed successfully."  
+END  
+
+PROCEDURE CheckOutBook()  
+    PRINT "Enter Member ID:"  
+    INPUT member_ID  
+    PRINT "Enter ISBN of book to check out:"  
+    INPUT ISBN  
+    IF book is available THEN  
+        SET status = "Checked Out"  
+        PRINT "Book checked out successfully. Due in 14 days."  
+    ELSE  
+        PRINT "Book is not available."  
+    ENDIF  
+END  
+
+PROCEDURE ReturnBook()  
+    PRINT "Enter ISBN of book to return:"  
+    INPUT ISBN  
+    SET status = "Available"  
+    CHECK for late return  
+    IF late THEN  
+        PRINT "Late fee applied."  
+    ENDIF  
+    PRINT "Book returned successfully."  
+END  
+
+PROCEDURE SearchBook()  
+    PRINT "Enter search term (Title/Author/ISBN):"  
+    INPUT search_term  
+    SEARCH book_database  
+    PRINT matching books  
+END  
+
+PROCEDURE GenerateReport()  
+    PRINT "Overdue Books Report:"  
+    DISPLAY list of overdue books  
+END
+
+
+7. Fibonacci Sequence Generator
+
+BEGIN    PRINT "Enter the number of terms:"  
+    INPUT n  
+
+    IF n <= 0 THEN  
+        PRINT "Invalid input. Enter a positive integer."  
+        EXIT  
+    ENDIF  
+
+    SET first = 0  
+    SET second = 1  
+
+    PRINT "Fibonacci Sequence:"  
+
+    IF n == 1 THEN  
+        PRINT first  
+        EXIT  
+    ENDIF  
+
+    PRINT first, second  
+
+    FOR i FROM 3 TO n DO  
+        SET next = first + second  
+        PRINT next  
+        SET first = second  
+        SET second = next  
+    ENDFOR  
+
+    PRINT "Do you want to save the sequence to a file? (yes/no)"  
+    INPUT choice  
+
+    IF choice == "yes" THEN  
+        OPEN file "fibonacci.txt"  
+        WRITE sequence to file  
+        CLOSE file  
+        PRINT "Sequence saved successfully."  
+    ENDIF  
+
+END
+
+
+8. Calendar Event Scheduler
+
+BEGIN  
+    PRINT "Welcome to Calendar Event Scheduler"  
+
+    REPEAT  
+        PRINT "Choose an option:"  
+        PRINT "1. Add Event"  
+        PRINT "2. View Events"  
+        PRINT "3. Search Event"  
+        PRINT "4. Delete Event"  
+        PRINT "5. Modify Event"  
+        PRINT "6. Set Reminder"  
+        PRINT "7. Exit"  
+        INPUT choice  
+
+        IF choice == 1 THEN  
+            PRINT "Enter Event Title:"  
+            INPUT title  
+            PRINT "Enter Date (YYYY-MM-DD):"  
+            INPUT date  
+            PRINT "Enter Time (HH:MM):"  
+            INPUT time  
+            PRINT "Enter Description:"  
+            INPUT description  
+
+            IF date AND time ARE VALID THEN  
+                ADD event to calendar  
+                PRINT "Event added successfully!"  
+            ELSE  
+                PRINT "Invalid date or time format. Try again."  
+            ENDIF  
+        
+        ELSE IF choice == 2 THEN  
+            PRINT "View events by: 1. Day  2. Week  3. Month"  
+            INPUT filter  
+            DISPLAY events based on filter  
+
+        ELSE IF choice == 3 THEN  
+            PRINT "Enter event title or keyword to search:"  
+            INPUT keyword  
+            SEARCH events and DISPLAY results  
+
+        ELSE IF choice == 4 THEN  
+            PRINT "Enter event title to delete:"  
+            INPUT event_title  
+            IF event exists THEN  
+                DELETE event  
+                PRINT "Event deleted successfully!"  
+            ELSE  
+                PRINT "Event not found!"  
+            ENDIF  
+
+        ELSE IF choice == 5 THEN  
+            PRINT "Enter event title to modify:"  
+            INPUT event_title  
+            IF event exists THEN  
+                PRINT "Enter new details (leave blank to keep unchanged):"  
+                INPUT new_date, new_time, new_description  
+                UPDATE event details  
+                PRINT "Event updated successfully!"  
+            ELSE  
+                PRINT "Event not found!"  
+            ENDIF  
+
+        ELSE IF choice == 6 THEN  
+            PRINT "Enter event title to set a reminder for:"  
+            INPUT event_title  
+            PRINT "Enter reminder time before event (in minutes):"  
+            INPUT reminder_time  
+            IF event exists THEN  
+                SET reminder  
+                PRINT "Reminder set successfully!"  
+            ELSE  
+                PRINT "Event not found!"  
+            ENDIF  
+
+    UNTIL choice == 7  
+
+    PRINT "Exiting Calendar Event Scheduler. Goodbye!"  
+END
